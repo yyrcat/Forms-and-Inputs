@@ -1,0 +1,281 @@
+<html>
+<head>
+	<link rel="stylesheet" href="form.css">
+</head>
+<body>
+	<!--Sign Up form-->
+	<form action="">
+		<div class="container">
+			<h1>SIGNUP</h1>
+			<div class="sign">
+				<label for="First Name">FIRST NAME</label>
+				<input type="text" required autofocus>
+				<label for="Last Name">LAST NAME</label>
+				<input type="text" required>
+				<label for="Date of Birth">DATE OF BIRTH</label>
+				<input type="date" required>
+				<label for="Password">PASSWORD</label>
+				<input type="password"  required>
+				<button>
+					SUBMIT
+				</button>
+			</div>
+		</div>		
+	</form>
+
+	<!--Search form-->
+	<form action="">
+		<div class="container">
+			<h1>SEARCH</h1>
+			<div class="search">
+				<input type="text" placeholder="Search.." autofocus required>
+				<input type="text" list="category" placeholder="Category">
+				<datalist id="category">
+					<option value="News"></option>
+					<option value="Movie"></option>
+					<option value="Music"></option>
+					<option value="Book"></option>
+				</datalist>
+				<button>SEARCH</button>
+			</div>
+		</div>
+	</form>
+
+	<!--Questionnaire-->
+	<form action="">
+		<div class="container">
+			<h1>QUESTIONNARIE</h1>
+			<div class="question">
+				<h2 for="">
+					Choose Your Nationality:
+				</h2>
+				<div class="option">
+					<input type="radio" name="country" value="China">
+					<label for="">CHINA</label>
+				</div>
+				<div class="option">
+					<input type="radio" name="country" value="USA">
+					<label for="">USA</label>
+				</div>
+				<div class="option">
+					<input type="radio" name="country" value="Canada">
+					<label for="">CANADA</label>
+				</div>
+				<div class="option">
+					<input type="radio" name="country" value="Mexico">
+					<label for="">MEXICO</label>
+				</div>
+				<div class="option">
+					<input type="radio" name="country" value="Other">
+					<label for="">OTHER</label>
+					<input type="text">
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	<!--login-->
+	<form action="">
+		<div class="container">
+			<h1>LOGIN</h1>
+			<div class="login">
+				<input type="text" placeholder="User Name">
+				<input type="text" placeholder="Password">
+				<input type="text" placeholder="Last 4 digits of your SSN">
+			</div>
+		</div>
+	</form>
+
+	<!--color building form-->
+	<form action="">
+		<div class="container">
+			<h1>COLOR BUILDING FORM</h1>
+			<div class="colorPicker">
+				<div class="red">
+					<label for="">RED:</label>
+					<div class="Rinput">
+						<input type="number" min="0" max="255" step="5">
+					</div>
+				</div>
+				<div class="green">
+					<label for="">GREEN:</label>
+					<div class="Ginput">
+						<input type="number"  min="0" max="255" step="5">
+					</div>
+					
+				</div>
+				<div class="blue">
+					<label for="">BLUE:</label>
+					<div class="Binput">
+						<input type="number"  min="0" max="255" step="5">	
+					</div>
+
+				</div>
+				<div class="alpha">
+					<label for="">ALPHA:</label>
+					<div class="Ainput">
+						<input type="number"  min="0" max="1" step="0.01">	
+					</div>
+					
+				</div>
+				<div class="color">
+					<label for="">COLOR:</label>
+					<div class="Cinput">
+						<input type="textarea">
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</form>
+
+	<!--shipping-->
+	<form action="">
+		<div class="container">
+			<h1>SHIPPING & BILLING FORM</h1>
+			
+			<div class="shipping">
+				<h2>SHIPPING INFO</h2>
+				<input type="text" placeholder="FIRST NAME">
+				
+				<input type="text" placeholder="LAST NAME">
+				
+				<input type="text" placeholder="ADDRESS">
+				
+				<input type="text" placeholder="CITY">
+				
+				<input type="text" placeholder="COUNTRY">
+
+			</div>
+			<div class="billing">
+				<h2>BILLING INFO</h2>
+				
+				<input type="text" placeholder="FIRST NAME">
+				
+				<input type="text" placeholder="LAST NAME">
+				
+				<input type="text" placeholder="ADDRESS">
+				
+				<input type="text" placeholder="CITY">
+				
+				<input type="text" placeholder="COUNTRY">
+				
+
+			</div>
+			<div class="billingcheckbox">
+				<input type="checkbox" ><label for="">The billing info should match shipping info.</label>
+			</div>
+			
+			
+		</div>
+		
+	</form>
+
+	<!--Scheduling Form-->
+	<form action="">
+		<div class="container">
+			<h1>SCHEDULING FORM</h1>
+			<div class="schedule">
+				<label for="">DATE</label>
+				<input type="date" required>
+				<label for="">TIME</label>
+				<input type="time" required>
+				<label for="">TIME ZONE</label>
+				<input list="timeZones" required>
+				<datalist id="timeZones">
+					<option value="UTC-10:00"></option>
+					<option value="UTC-9:00"></option>
+					<option value="UTC-8:00"></option>
+					<option value="UTC-7:00"></option>
+					<option value="UTC-6:00"></option>
+					<option value="UTC-5:00"></option>
+					<option value="UTC-4:00"></option>
+				</datalist>
+				<div class="message">
+					<label for="">MESSAGE</label>
+					<div class="mInput">
+						<textarea rows="10" required></textarea>
+					</div>	
+				</div>
+				<div class="contact">
+					<label for="">CONTACT</label>
+					<div class="cInput">
+						<input type="tel" required>
+					</div>
+				</div>
+				<div class="email">
+					<label for="">EMAIL</label>
+					<div class="eInput">
+						<input type="email" required>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+	</form>
+	<!--credit card form-->
+	<form action="">
+		<div class="container">
+			<div class="credit">
+				<h1>CREDIT/DEBIT CARD FORM</h1>
+				<label for="">FULL NAME</label>
+				<input type="text">
+				<label for="">CARD NUMBER</label>
+				<input type="text" max="19" placeholder="XXXX-XXXX-XXXX-XXXX">
+				<div class="security">
+					<span class="tooltip">
+						<label for="">CVS</label>
+						<span class="tooltipText">The 3 digits number on the back of your card</span>
+						<input type="text">
+					</span>
+				
+					
+					<label for="">EXPIRATION DATE</label>
+					<input type="text" list="month">
+					<datalist id="month">
+						<option value="Jan"></option>
+						<option value="Feb"></option>
+						<option value="Mar"></option>
+						<option value="Apr"></option>
+						<option value="May"></option>
+						<option value="June"></option>
+						<option value="July"></option>
+						<option value="Aug"></option>
+						<option value="Sep"></option>
+						<option value="Oct"></option>
+						<option value="Nov"></option>
+						<option value="Dec"></option>
+					</datalist>
+
+					<input type="text" list="year">
+					<datalist id="year">
+						<option value="15"></option>
+						<option value="16"></option>
+						<option value="17"></option>
+						<option value="18"></option>
+						<option value="19"></option>
+						<option value="20"></option>
+						<option value="21"></option>
+						<option value="22"></option>
+						<option value="23"></option>
+						<option value="24"></option>
+						<option value="25"></option>
+						<option value="26"></option>
+						<option value="27"></option>
+						<option value="28"></option>
+						<option value="29"></option>
+						<option value="30"></option>
+					</datalist>
+				</div>
+				
+			</div>
+			
+
+		</div>
+	</form>
+</body>
+</html>
