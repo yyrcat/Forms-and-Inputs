@@ -21,6 +21,17 @@ input,button,textarea{
 input:focus{
 	outline:0;
 }
+.menu{
+	position: fixed;
+	top:2em;
+}
+li{
+	list-style: none;
+	padding:.5em 0;
+}
+a{
+	text-decoration: none;
+}
 /*signup form*/
 .sign{
 	width:100%;
