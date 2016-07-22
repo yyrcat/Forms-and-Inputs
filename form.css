@@ -2,10 +2,13 @@ body{
 	font-family: Arial;
 	font-size: 16px;
 	font-weight:bold;
-	background:;
+
 }
 h1{
 	text-align:center;
+}
+.valid{
+	border:1px red solid;
 }
 .container{
 	width:30%;
@@ -36,7 +39,7 @@ a{
 .sign{
 	width:100%;
 }
-.sign input,.sign button{
+.sign input{
 	width:100%;
 	border-radius: .5em;
 	border:2px solid #6E8CCC;
@@ -46,13 +49,13 @@ a{
 	border:2px solid #fff;
 	box-shadow: 0 0 3pt 1pt #4B701D;
 }
-.sign button{
+.sign input[type="button"]{
 	background:#6E8CCC;
 	color:#fff;
 	font-weight:bold;
 	transition:background .5s;
 }
-.sign button:hover{
+.sign input[type="button"]:hover{
 	background:#4B701D;
 	border:2px solid #4B701D;
 }

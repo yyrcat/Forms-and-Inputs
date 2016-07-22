@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="form.css">
+
 </head>
 <body>
 	<ul class="menu">
@@ -15,27 +16,25 @@
 		<li><a href="http://yyrcat.github.io/Intro-CSS-Home-Page/Assignment1.html">BACK</a></li>
 	</ul>
 	<!--Sign Up form-->
-	<form action="">
+	<form action="" id="signup">
 		<div class="container">
 			<a name="sign"><h1>SIGNUP</h1></a>
 			<div class="sign">
 				<label for="First Name">FIRST NAME</label>
-				<input type="text" required autofocus>
+				<input type="text" name="firstName" required autofocus>
 				<label for="Last Name">LAST NAME</label>
-				<input type="text" required>
+				<input type="text" name="lastName" required>
 				<label for="Date of Birth">DATE OF BIRTH</label>
-				<input type="date" required>
+				<input type="date" name="birthday" required>
 				<label for="Password">PASSWORD</label>
-				<input type="password"  required>
-				<button>
-					SUBMIT
-				</button>
+				<input type="password"  name="password" required>
+				<input type="submit" value="SUBMIT">
 			</div>
 		</div>		
 	</form>
 
 	<!--Search form-->
-	<form action="">
+	<form action="" id="search">
 		<div class="container">
 			<a name="search"><h1>SEARCH</h1></a>
 			<div class="search">
@@ -53,7 +52,7 @@
 	</form>
 
 	<!--Questionnaire-->
-	<form action="">
+	<form action="" id="question">
 		<div class="container">
 			<a name="questionnaire"><h1>QUESTIONNARIE</h1></a>
 			<div class="question">
@@ -87,7 +86,7 @@
 
 
 	<!--login-->
-	<form action="">
+	<form action="" id="login">
 		<div class="container">
 			<a name="login"><h1>LOGIN</h1></a>
 			<div class="login">
@@ -99,7 +98,7 @@
 	</form>
 
 	<!--color building form-->
-	<form action="">
+	<form action="" id="color">
 		<div class="container">
 			<a name="color"><h1>COLOR BUILDING FORM</h1></a>
 			<div class="colorPicker">
@@ -144,7 +143,7 @@
 	</form>
 
 	<!--shipping-->
-	<form action="">
+	<form action="" id="shipping">
 		<div class="container">
 			<a name="shipping"><h1>SHIPPING & BILLING FORM</h1></a>
 			
@@ -186,7 +185,7 @@
 	</form>
 
 	<!--Scheduling Form-->
-	<form action="">
+	<form action="" id="schedule">
 		<div class="container">
 			<a name="scheduling"><h1>SCHEDULING FORM</h1></a>
 			<div class="schedule">
@@ -229,7 +228,7 @@
 		</div>
 	</form>
 	<!--credit card form-->
-	<form action="">
+	<form action="" id="creditCard">
 		<div class="container">
 			<div class="credit">
 				<a name="credit"><h1>CREDIT/DEBIT CARD FORM</h1></a>				
@@ -288,5 +287,6 @@
 
 		</div>
 	</form>
+	<script src="validator.js"></script>
 </body>
 </html>
