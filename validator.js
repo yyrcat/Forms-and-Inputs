@@ -274,7 +274,16 @@ var signupForm=document.getElementById("signup");/*at first, this statement alwa
 the script in the head, so the script is loaded before the page content is loaded, so the result is null. */
 signupForm.addEventListener('submit',function(event){
     event.preventDefault();
-    if(validator.isOfLength(signupForm.elements[0].value,2)){
-        console.log(signupForm.elements.length);
+    if(validator.isOfLength(signupForm.elements["firstName"].value,2)){
+       signupForm.firstName.className ="valid";
+    }
+    if(validator.isOfLength(signupForm.elements["lastName"].value,2)){
+        signupForm.lastName.className ="valid";
+    }
+    if(validator.isBeforeToday(signupForm.elements["birthday"].value)){
+        signupForm.birthday.className ="valid";
+    }
+    if(validator.isOfLength(signupForm.elements["password"].value,6)){
+        signupForm.password.className ="valid";
     }
 });

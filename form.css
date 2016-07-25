@@ -8,7 +8,9 @@ h1{
 	text-align:center;
 }
 .valid{
-	border:1px red solid;
+	width:100%;
+	border-radius: .5em;
+	border:2px #4B701D solid;
 }
 .container{
 	width:30%;
@@ -39,23 +41,25 @@ a{
 .sign{
 	width:100%;
 }
-.sign input{
+.signInput{
 	width:100%;
 	border-radius: .5em;
 	border:2px solid #6E8CCC;
 }
-.sign input:focus{
+.signInput:focus{
 	
 	border:2px solid #fff;
 	box-shadow: 0 0 3pt 1pt #4B701D;
 }
-.sign input[type="button"]{
+.signButton{
+	width:100%;
+	border:none;
 	background:#6E8CCC;
 	color:#fff;
 	font-weight:bold;
 	transition:background .5s;
 }
-.sign input[type="button"]:hover{
+.signButton:hover{
 	background:#4B701D;
 	border:2px solid #4B701D;
 }
