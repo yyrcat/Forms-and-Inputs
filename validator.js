@@ -13,7 +13,7 @@ var validator = {};
     validator.isPhoneNumber = function(number) {
         if (!number) throw "Missing Parameter in isPhoneNumber function: 'number'."
         var num = parseInt(number);
-        if (num.toString() === 10) return true;
+        if (num.toString().length === 10) return true;
         else return false;
     };
     validator.withoutSymbols = function(symbol) {
@@ -58,12 +58,15 @@ var validator = {};
 
 
     validator.isEmpty = function(input) {
-        var falg = true;
-        for (var i = 0; i < input.length; i++) {
-            if (input.charCodeAt(i) !== 32) flag = false;
+        var flag = false;
+        if (input.length === 0) return true;
+        else{
+            for (var i = 0; i < input.length; i++) {
+                if (input.charCodeAt(i) !== 32) flag = true;
+            }
         }
-        if (input.length === 0) return false;
-        else if (!flag) return false;
+        if (flag) return false;
+        else return true;
     };
 
 
@@ -144,7 +147,10 @@ var validator = {};
         else return false;
     };
     validator.isBetween = function(input, floor, ceil) {
-
+            if(inut<=ceil && input>=floor){
+                return true;
+            }else
+                return false;
     };
 
     validator.isAlphanumeric = function(input) {
@@ -272,18 +278,221 @@ var validator = {};
 
 var signupForm=document.getElementById("signup");/*at first, this statement always return null, the reason is I put
 the script in the head, so the script is loaded before the page content is loaded, so the result is null. */
+var signSpan=document.querySelectorAll(".signError");
 signupForm.addEventListener('submit',function(event){
     event.preventDefault();
-    if(validator.isOfLength(signupForm.elements["firstName"].value,2)){
-       signupForm.firstName.className ="valid";
+    if(!validator.isOfLength(signupForm.elements["firstName"].value,2)){
+       signupForm.elements["firstName"].setCustomValidity("Please type in at least two characters");
     }
-    if(validator.isOfLength(signupForm.elements["lastName"].value,2)){
-        signupForm.lastName.className ="valid";
+    signSpan[0].innerHTML=signupForm.elements["firstName"].validationMessage;
+    if(!validator.isOfLength(signupForm.elements["lastName"].value,2)){
+        signupForm.elements["lastName"].setCustomValidity("Please type in at least two characters");
     }
-    if(validator.isBeforeToday(signupForm.elements["birthday"].value)){
-        signupForm.birthday.className ="valid";
+    signSpan[1].innerHTML=signupForm.elements["lastName"].validationMessage;
+
+    if(!validator.isEmpty(signupForm.elements["birthday"].value)){
+        if(!validator.isBeforeToday(signupForm.elements["birthday"].value)){
+            signupForm.elements["birthday"].setCustomValidity("Please choose date before today.");
+        }
     }
-    if(validator.isOfLength(signupForm.elements["password"].value,6)){
-        signupForm.password.className ="valid";
+    else signupForm.elements["birthday"].setCustomValidity("Date can't be null.");
+
+    signSpan[2].innerHTML=signupForm.elements["birthday"].validationMessage;
+    if(!validator.isOfLength(signupForm.elements["password"].value,6)){
+        signupForm.elements["password"].setCustomValidity("Please type in at least 6 characters.")
     }
+    signSpan[3].innerHTML=signupForm.elements["password"].validationMessage;
+});
+
+var searchForm=document.getElementById("search");
+var searchSpan=document.querySelectorAll(".searchError");
+searchForm.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(validator.isEmpty(searchForm.elements["search"].value)){
+        searchForm.elements["search"].setCustomValidity("Search term can't be null.");
+    }
+    searchSpan[0].innerHTML=searchForm.elements["search"].validationMessage;
+    if(validator.isEmpty(searchForm.elements["category"].value)){
+        searchForm.elements["category"].setCustomValidity("Category can't be null.");
+    }
+    searchSpan[1].innerHTML=searchForm.elements["category"].validationMessage;
+});
+
+
+var loginForm=document.getElementById("login");
+var logSpan=document.querySelectorAll(".logError");
+loginForm.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(!validator.isOfLength(loginForm.elements["user"].value,4)){
+        loginForm.elements["user"].setCustomValidity("Username should be at least 4 characters.");
+    }
+    logSpan[0].innerHTML=loginForm.elements["user"].validationMessage;
+    if(!validator.isOfLength(loginForm.elements["password"].value,6)){
+       loginForm.elements["password"].setCustomValidity("Password should be at least 6 characters.");
+    }
+    logSpan[1].innerHTML=loginForm.elements["password"].validationMessage;
+    if(!validator.isOfLength(loginForm.elements["ssn"].value,4)){
+        loginForm.elements["ssn"].setCustomValidity("Please type in last 4 digits of your SSN.");
+    }
+    logSpan[2].innerHTML=loginForm.elements["ssn"].validationMessage;
+});
+
+var colorForm=document.getElementById("color");
+var colorSpan=document.querySelectorAll(".colorError");
+colorForm.addEventListener("submit",function(event){
+    event.preventDefault();
+       colorForm.elements["finalColor"].value="rgba("+colorForm.elements["red"].value+","+colorForm.elements["green"].value+","+colorForm.elements["blue"].value+","+colorForm.elements["alpha"].value+")";
+});
+
+var shipForm=document.getElementById("ship");
+var shipSpan=document.querySelectorAll(".shipError");
+shipForm.addEventListener("submit",function(event){
+    event.preventDefault();
+    if(shipForm.elements["checkBox"].checked){
+        shipForm.elements["firstNameBill"].value=shipForm.elements["firstNameShip"].value;
+        shipForm.elements["lastNameBill"].value=shipForm.elements["lastNameShip"].value;
+        shipForm.elements["addressBill"].value=shipForm.elements["addressShip"].value;
+        shipForm.elements["cityBill"].value=shipForm.elements["cityShip"].value;
+        shipForm.elements["countryBill"].value=shipForm.elements["countryShip"].value;
+        shipForm.elements["phoneBill"].value=shipForm.elements["phoneShip"].value;
+    }
+
+    if(!validator.isOfLength(shipForm.elements["firstNameShip"].value,2)){
+       shipForm.elements["firstNameShip"].setCustomValidity("First name should be at least 2 characters");
+    }
+    shipSpan[0].innerHTML=shipForm.elements["firstNameShip"].validationMessage;
+
+    if(!validator.isOfLength(shipForm.elements["lastNameShip"].value,2)){
+        shipForm.elements["lastNameShip"].setCustomValidity("Last name should be at least 2 characters");
+    }
+    shipSpan[1].innerHTML=shipForm.elements["lastNameShip"].validationMessage;
+    if(!validator.isOfLength(shipForm.elements["addressShip"].value,10)){
+        shipForm.elements["addressShip"].setCustomValidity("Address should be at least 5 characters");
+    }
+    shipSpan[2].innerHTML=shipForm.elements["addressShip"].validationMessage;
+
+    if(!validator.isOfLength(shipForm.elements["cityShip"].value,5)){
+        shipForm.elements["cityShip"].setCustomValidity("City name should be at leaset 5 characters");
+    }
+    shipSpan[3].innerHTML=shipForm.elements["cityShip"].validationMessage;
+
+    if(!validator.isOfLength(shipForm.elements["countryShip"].value,5)){
+        shipForm.elements["countryShip"].setCustomValidity("Country should be at leaset 4 characters");
+    }
+    shipSpan[4].innerHTML=shipForm.elements["countryShip"].validationMessage;
+
+    if(!validator.isEmpty(shipForm.elements["phoneShip"].value)){
+        if(!validator.isPhoneNumber(shipForm.elements["phoneShip"].value)){
+            shipForm.elements["phoneShip"].setCustomValidity("Please type in valid phone number.");
+        }
+    }else {
+        shipForm.elements["phoneShip"].setCustomValidity("Phone number can't be null.");
+    }
+
+    shipSpan[5].innerHTML=shipForm.elements["phoneShip"].validationMessage;
+});
+
+var scheduleForm=document.getElementById("schedule");
+var scheduleSpan=document.querySelectorAll(".scheduleError");
+scheduleForm.addEventListener("submit",function(event){
+    event.preventDefault();
+    if(!validator.isEmpty(scheduleForm.elements["date"].value)){
+        if(!validator.isDate(scheduleForm.elements["date"].value)){
+            scheduleForm.elements["date"].setCustomValidity("Please type in valid date format.");
+        }else{
+            if(!validator.isAfterToday(scheduleForm.elements["date"].value)){
+                scheduleForm.elements["date"].setCustomValidity("Please choose date after today.");
+            }
+        }
+    }else  {scheduleForm.elements["date"].setCustomValidity("Date can't be null.");}
+
+    scheduleSpan[0].innerHTML=scheduleForm.elements["date"].validationMessage;
+
+    if(validator.isEmpty(scheduleForm.elements["timeZones"].value)){
+        scheduleForm.elements["timeZones"].setCustomValidity("Please choose a time zone.");
+    }
+    scheduleSpan[2].innerHTML=scheduleForm.elements["timeZones"].validationMessage;
+
+    if(!validator.isEmpty(scheduleForm.elements["date"].value)){
+        if(validator.isOfLength(scheduleForm.elements["msg"].value,20)){
+            scheduleForm.elements["msg"].setCustomValidity("Please type in at leaset 20 characters.");
+        }
+    }else {
+        scheduleForm.elements["msg"].setCustomValidity("Message can't be null.");
+    }
+
+    scheduleSpan[3].innerHTML=scheduleForm.elements["msg"].validationMessage;
+
+    if(!validator.isEmpty(scheduleForm.elements["phone"].value)){
+        if(!validator.isPhoneNumber(scheduleForm.elements["phone"].value)){
+            scheduleForm.elements["phone"].setCustomValidity("Please type in valid phone number.");
+        }
+    }else {
+        scheduleForm.elements["phone"].setCustomValidity("Phone number can't be null.");
+    }
+    scheduleSpan[4].innerHTML=scheduleForm.elements["phone"].validationMessage;
+
+    if(!validator.isEmpty(scheduleForm.elements["date"].value)){
+        if(validator.isEmailAddress(scheduleForm.elements["email"].value)){
+            scheduleForm.elements["email"].setCustomValidity("Please type in valid email address");
+        }
+    }
+    else{
+        scheduleForm.elements["email"].setCustomValidity("Email can't be null.");
+    }
+
+    scheduleSpan[5].innerHTML=scheduleForm.elements["email"].validationMessage;
+
+});
+
+var creditForm=document.getElementById("creditCard");
+var cardSpan=document.querySelectorAll(".cardError");
+creditForm.addEventListener("submit",function(event){
+    event.preventDefault();
+    if(!validator.isEmpty(creditForm.elements["name"].value)){
+        if(validator.moreWordsThan(creditForm.elements["name"].value,2)){
+            if(!validator.isAlphanumeric(creditForm.elements["name"].value)){
+                creditForm.elements["name"].setCustomValidity("Plese include only letters in your name.");
+            }
+        }
+        else {
+            creditForm.elements["name"].setCustomValidity("Plese type in your full name.");
+        }
+    }else{
+        creditForm.elements["name"].setCustomValidity("Name can't be null.");
+    }
+    cardSpan[0].innerHTML=creditForm.elements["name"].validationMessage;
+
+
+    if(!validator.isEmpty(creditForm.elements["cardNumber"].value)){
+        if(!validator.isCreditCard(creditForm.elements["cardNumber"].value)){
+            creditForm.elements["cardNumber"].setCustomValidity("Please type in valid card number.");
+        }
+    }
+    else  creditForm.elements["cardNumber"].setCustomValidity("Card number can't be null.");
+    cardSpan[1].innerHTML=creditForm.elements["cardNumber"].validationMessage;
+
+
+    if(!validator.isEmpty(creditForm.elements["cvs"].value)){
+        if(!validator.isLength(creditForm.elements["cvs"].value),3){
+            creditForm.elements["cvs"].setCustomValidity("Please type in 3-digits cvs.");
+        }
+        else{
+            if(validator.isAlphanumeric(creditForm.elements["cvs"].value)){
+                creditForm.elements["cvs"].setCustomValidity("Please don't include letters in the cvs number.");
+            }
+        }
+    }
+    else  creditForm.elements["cvs"].setCustomValidity("Card number can't be null.");
+    cardSpan[2].innerHTML=creditForm.elements["cvs"].validationMessage;
+
+    if(validator.isEmpty(creditForm.elements["month"].value)) {
+        creditForm.elements["month"].setCustomValidity("Month can't be null.");
+    }
+    cardSpan[3].innerHTML=creditForm.elements["month"].validationMessage;
+
+    if(validator.isEmpty(creditForm.elements["year"].value)) {
+        creditForm.elements["year"].setCustomValidity("Year can't be null.");
+    }
+    cardSpan[4].innerHTML=creditForm.elements["year"].validationMessage;
 });

@@ -7,11 +7,6 @@ body{
 h1{
 	text-align:center;
 }
-.valid{
-	width:100%;
-	border-radius: .5em;
-	border:2px #4B701D solid;
-}
 .container{
 	width:30%;
 	margin:0 auto;
@@ -37,6 +32,30 @@ li{
 a{
 	text-decoration: none;
 }
+.button{
+	width:100%;
+	border:none;
+	font-weight:bold;
+	transition:background .5s;
+}
+/*error message*/
+.signError,
+.searchError,
+.logError,
+.shipError,
+.scheduleError,
+.cardError{
+	display: block;
+	color:darkred;
+	padding:.5em 0;
+}
+/*error style*/
+.signInput:invalid,
+.searchInput:invalid,
+.logInput:invalid
+{
+	border:3px darkred solid;
+}
 /*signup form*/
 .sign{
 	width:100%;
@@ -51,36 +70,30 @@ a{
 	border:2px solid #fff;
 	box-shadow: 0 0 3pt 1pt #4B701D;
 }
-.signButton{
-	width:100%;
-	border:none;
+.signSpe{
 	background:#6E8CCC;
 	color:#fff;
-	font-weight:bold;
-	transition:background .5s;
 }
-.signButton:hover{
+.signSpe:hover{
 	background:#4B701D;
-	border:2px solid #4B701D;
 }
-
 
 /*search form*/
 
-.search input,.search button {
+.searchInput,.searchSpe{
 	width:100%;
 	border-color:rgba(0, 0, 0, 0);
 	border-radius:3%/50%;
 	transition:border-color .5s linear;
 }
-.search input{
+.searcInput{
 	background:#F1F1F1;
 }
-.search button{
+.searchSpe{
 	color:#fff;
 	background:#52753F;
 }
-.search input:focus{
+.searchInput:focus{
 	border-radius:3%/50%;
 	background: rgba(0, 0, 0, 0);
 	border:2px solid #6E8CCC;
@@ -101,11 +114,17 @@ a{
 	-moz-animation: bounce 1.5s infinite;
 	animation: bounce 1.5s infinite;
 }
-.login input{
+.logInput,.logSpe{
 	width:100%;
 	border:1px solid #F5835D;
 	outline:none;
 	box-shadow:5px 3px 2px #F5835D;
+}
+.logInput:invalid{
+	 border:3px darkred solid;
+ }
+.logSpe{
+	background:#fff;
 }
 @-webkit-keyframes bounce{
 	0%{
@@ -139,6 +158,10 @@ a{
 .colorPicker input{
 	width:100%;
 	border:none;
+}
+.colorSpe{
+	background:#b3aca7;
+	color:white;
 }
 .red,.green,.blue,.alpha,.color{
 	position:relative;
@@ -191,7 +214,7 @@ a{
 	border-bottom:none;
 	transition:background .5s linear;	
 }
-.shipping input:last-child,.billing input:nth-child(6){
+.shipping input:last-child,.billing input:last-child{
 	border-bottom:solid 1px #b3aca7;
 }
 .shipping input:focus,.billing input:focus{
@@ -230,7 +253,7 @@ a{
 	border:none;
 	background:#CCCCCC;
 }
-.mInput:before{
+/*.mInput:before{
 	position:absolute;
 	top:0;
 	left:0;
@@ -244,7 +267,7 @@ a{
 .message:hover .mInput:before
 {
 	transform:scale3d(1.5,1.5,3) rotate3d(0,0,1,45deg) translate3d(0,200%,0);
-}
+}*/
 
 /*debit/credit*/
 .credit input{

@@ -16,43 +16,51 @@
 		<li><a href="http://yyrcat.github.io/Intro-CSS-Home-Page/Assignment1.html">BACK</a></li>
 	</ul>
 	<!--Sign Up form-->
-	<form action="" id="signup">
+	<!--novalidate attribute turn off the browser's automatic validation-->
+	<form action="" id="signup" novalidate>
 		<div class="container">
 			<a name="sign"><h1>SIGNUP</h1></a>
 			<div class="sign">
 				<label for="First Name">FIRST NAME</label>
-				<input type="text" name="firstName" required autofocus class="signInput">
+				<!--aria-live=polite makes sure that custom error msg will be presented to everyone, including blind people.-->
+				<span class="signError" aria-live="polite"></span>
+				<input type="text" name="firstName" autofocus class="signInput">
 				<label for="Last Name">LAST NAME</label>
-				<input type="text" name="lastName" required class="signInput">
+				<span class="signError" aria-live="polite"></span>
+				<input type="text" name="lastName" class="signInput">
 				<label for="Date of Birth">DATE OF BIRTH</label>
-				<input type="date" name="birthday" required class="signInput">
+				<span class="signError" aria-live="polite"></span>
+				<input type="date" name="birthday" class="signInput">
 				<label for="Password">PASSWORD</label>
-				<input type="password"  name="password" required class="signInput">
-				<input type="submit" value="SUBMIT" class="signButton">
+				<span class="signError" aria-live="polite"></span>
+				<input type="password"  name="password" class="signInput">
+				<input type="submit" value="SUBMIT" class="button signSpe">
 			</div>
 		</div>		
 	</form>
 
 	<!--Search form-->
-	<form action="" id="search">
+	<form action="" id="search" novalidate>
 		<div class="container">
 			<a name="search"><h1>SEARCH</h1></a>
 			<div class="search">
-				<input type="text" placeholder="Search.." autofocus required>
-				<input type="text" list="category" placeholder="Category">
+				<span class="searchError" aria-live="polite"></span>
+				<input type="text" class="searchInput" name="search" placeholder="Search.." autofocus>
+				<span class="searchError" aria-live="polite"></span>
+				<input type="text" class="searchInput" name="category" list="category" placeholder="Category">
 				<datalist id="category">
 					<option value="News"></option>
 					<option value="Movie"></option>
 					<option value="Music"></option>
 					<option value="Book"></option>
 				</datalist>
-				<button>SEARCH</button>
+				<input type="submit" value="SUBMIT" class="button searchSpe">
 			</div>
 		</div>
 	</form>
 
 	<!--Questionnaire-->
-	<form action="" id="question">
+	<form action="" id="question" novalidate>
 		<div class="container">
 			<a name="questionnaire"><h1>QUESTIONNARIE</h1></a>
 			<div class="question">
@@ -86,13 +94,17 @@
 
 
 	<!--login-->
-	<form action="" id="login">
+	<form action="" id="login" novalidate>
 		<div class="container">
 			<a name="login"><h1>LOGIN</h1></a>
 			<div class="login">
-				<input type="text" placeholder="User Name">
-				<input type="text" placeholder="Password">
-				<input type="text" placeholder="Last 4 digits of your SSN">
+				<span class="logError" aria-live="polite"></span>
+				<input type="text" name="user" class="logInput" placeholder="User Name">
+				<span class="logError" aria-live="polite"></span>
+				<input type="text" name="password" class="logInput" placeholder="Password">
+				<span class="logError" aria-live="polite"></span>
+				<input type="text" name="ssn" class="logInput" placeholder="Last 4 digits of your SSN">
+				<input type="submit" value="SUBMIT" class="button logSpe">
 			</div>
 		</div>
 	</form>
@@ -104,97 +116,101 @@
 			<div class="colorPicker">
 				<div class="red">
 					<label for="">RED:</label>
+
 					<div class="Rinput">
-						<input type="number" min="0" max="255" step="5">
+						<input type="number" name="red" min="0" max="255" step="5">
 					</div>
 				</div>
 				<div class="green">
 					<label for="">GREEN:</label>
+
 					<div class="Ginput">
-						<input type="number"  min="0" max="255" step="5">
+						<input type="number"  name="green" min="0" max="255" step="5">
 					</div>
 					
 				</div>
 				<div class="blue">
 					<label for="">BLUE:</label>
+
 					<div class="Binput">
-						<input type="number"  min="0" max="255" step="5">	
+						<input type="number" name="blue" min="0" max="255" step="5">
 					</div>
 
 				</div>
 				<div class="alpha">
 					<label for="">ALPHA:</label>
+
 					<div class="Ainput">
-						<input type="number"  min="0" max="1" step="0.01">	
+						<input type="number"  name="alpha" min="0" max="1" step="0.01">
 					</div>
 					
 				</div>
 				<div class="color">
 					<label for="">COLOR:</label>
+					<span class="colorError" aria-live="polite"></span>
 					<div class="Cinput">
-						<input type="textarea">
+						<input type="textarea" name="finalColor">
 					</div>
 					
 				</div>
-				
+
+				<input type="submit" value="SUBMIT" class="button colorSpe">
 			</div>
 			
 		</div>
 	</form>
 
 	<!--shipping-->
-	<form action="" id="shipping">
+	<form action="" id="ship" novalidate>
 		<div class="container">
 			<a name="shipping"><h1>SHIPPING & BILLING FORM</h1></a>
-			
+			<span class="shipError" aria-live="polite"></span>
+			<span class="shipError" aria-live="polite"></span>
+			<span class="shipError" aria-live="polite"></span>
+			<span class="shipError" aria-live="polite"></span>
+			<span class="shipError" aria-live="polite"></span>
+			<span class="shipError" aria-live="polite"></span>
 			<div class="shipping">
 				<h2>SHIPPING INFO</h2>
-				<input type="text" placeholder="FIRST NAME">
-				
-				<input type="text" placeholder="LAST NAME">
-				
-				<input type="text" placeholder="ADDRESS">
-				
-				<input type="text" placeholder="CITY">
-				
-				<input type="text" placeholder="COUNTRY">
-
+				<input type="text" name="firstNameShip" placeholder="FIRST NAME">
+				<input type="text" name="lastNameShip" placeholder="LAST NAME">
+				<input type="text" name="addressShip" placeholder="ADDRESS">
+				<input type="text" name="cityShip" placeholder="CITY">
+				<input type="text" name="countryShip" placeholder="COUNTRY">
+				<input type="text" name="phoneShip" placeholder="PHONE">
 			</div>
 			<div class="billing">
 				<h2>BILLING INFO</h2>
-				
-				<input type="text" placeholder="FIRST NAME">
-				
-				<input type="text" placeholder="LAST NAME">
-				
-				<input type="text" placeholder="ADDRESS">
-				
-				<input type="text" placeholder="CITY">
-				
-				<input type="text" placeholder="COUNTRY">
-				
-
+				<input type="text" name="firstNameBill" placeholder="FIRST NAME">
+				<input type="text" name="lastNameBill" placeholder="LAST NAME">
+				<input type="text" name="addressBill" placeholder="ADDRESS">
+				<input type="text" name="cityBill" placeholder="CITY">
+				<input type="text" name="countryBill" placeholder="COUNTRY">
+				<input type="text" name="phoneBill" placeholder="PHONE">
 			</div>
 			<div class="billingcheckbox">
-				<input type="checkbox" ><label for="">The billing info should match shipping info.</label>
+				<input type="checkbox" name="checkBox"><label for="">The billing info should match shipping info.</label>
 			</div>
-			
-			
+
+			<input type="submit" value="SUBMIT" class="button">
 		</div>
 		
 	</form>
 
 	<!--Scheduling Form-->
-	<form action="" id="schedule">
+	<form action="" id="schedule" novalidate>
 		<div class="container">
 			<a name="scheduling"><h1>SCHEDULING FORM</h1></a>
 			<div class="schedule">
 				<label for="">DATE</label>
-				<input type="date" required>
+				<span class="scheduleError" aria-live="polite"></span>
+				<input type="date" name="date">
 				<label for="">TIME</label>
-				<input type="time" required>
+				<span class="scheduleError" aria-live="polite"></span>
+				<input type="time" name="time">
 				<label for="">TIME ZONE</label>
-				<input list="timeZones" required>
+				<span class="scheduleError" aria-live="polite"></span>
+				<input list="timeZones" name="timeZones">
 				<datalist id="timeZones">
 					<option value="UTC-10:00"></option>
 					<option value="UTC-9:00"></option>
@@ -206,46 +222,52 @@
 				</datalist>
 				<div class="message">
 					<label for="">MESSAGE</label>
+					<span class="scheduleError" aria-live="polite"></span>
 					<div class="mInput">
-						<textarea rows="10" required></textarea>
+						<textarea rows="10" name="msg"></textarea>
 					</div>	
 				</div>
 				<div class="contact">
 					<label for="">CONTACT</label>
+					<span class="scheduleError" aria-live="polite"></span>
 					<div class="cInput">
-						<input type="tel" required>
+						<input type="tel" name="phone" >
 					</div>
 				</div>
 				<div class="email">
 					<label for="">EMAIL</label>
+					<span class="scheduleError" aria-live="polite"></span>
 					<div class="eInput">
-						<input type="email" required>
+						<input type="email" name="email">
 					</div>
-
 				</div>
-				
+				<input type="submit" value="SUBMIT" class="button">
 			</div>
 		</div>
 	</form>
 	<!--credit card form-->
-	<form action="" id="creditCard">
+	<form action="" id="creditCard" novalidate>
 		<div class="container">
 			<div class="credit">
 				<a name="credit"><h1>CREDIT/DEBIT CARD FORM</h1></a>				
 				<label for="">FULL NAME</label>
-				<input type="text">
+				<span class="cardError" aria-live="polite"></span>
+				<input type="text" name="name">
 				<label for="">CARD NUMBER</label>
-				<input type="text" max="19" placeholder="XXXX-XXXX-XXXX-XXXX">
+				<span class="cardError" aria-live="polite"></span>
+				<input type="text" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX">
 				<div class="security">
 					<span class="tooltip">
 						<label for="">CVS</label>
+						<span class="cardError" aria-live="polite"></span>
 						<span class="tooltipText">The 3 digits number on the back of your card</span>
-						<input type="text">
+						<input type="text" name="cvs">
 					</span>
 				
 					
 					<label for="">EXPIRATION DATE</label>
-					<input type="text" list="month">
+					<span class="cardError" aria-live="polite"></span>
+					<input type="text" list="month" name="month">
 					<datalist id="month">
 						<option value="Jan"></option>
 						<option value="Feb"></option>
@@ -260,8 +282,8 @@
 						<option value="Nov"></option>
 						<option value="Dec"></option>
 					</datalist>
-
-					<input type="text" list="year">
+					<span class="cardError" aria-live="polite"></span>
+					<input type="text" list="year" name="year">
 					<datalist id="year">
 						<option value="15"></option>
 						<option value="16"></option>
@@ -283,8 +305,8 @@
 				</div>
 				
 			</div>
-			
 
+			<input type="submit" value="SUBMIT" class="button">
 		</div>
 	</form>
 	<script src="validator.js"></script>
